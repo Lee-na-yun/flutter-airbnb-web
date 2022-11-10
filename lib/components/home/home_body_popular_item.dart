@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_airbnb/constants.dart';
 import 'package:flutter_airbnb/size.dart';
+import 'package:flutter_airbnb/styles.dart';
 
 class HomeBodyPopularItem extends StatelessWidget {
   final id;
@@ -33,18 +35,66 @@ class HomeBodyPopularItem extends StatelessWidget {
   }
 
   Widget _buildPopularItemImage() {
-    return SizedBox();
+    return Column(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset("assets/${popularList[id]}", fit: BoxFit.cover),
+        ),
+        SizedBox(height: gap_s),
+      ],
+    );
   }
 
   Widget _buildPopularItemStar() {
-    return SizedBox();
+    return Column(
+      children: [
+        Row(
+          children: [
+            Icon(Icons.star, color: kAccentColor),
+            Icon(Icons.star, color: kAccentColor),
+            Icon(Icons.star, color: kAccentColor),
+            Icon(Icons.star, color: kAccentColor),
+            Icon(Icons.star, color: kAccentColor),
+          ],
+        ),
+        SizedBox(height: gap_s),
+      ],
+    );
   }
 
   Widget _buildPopularItemComment() {
-    return SizedBox();
+    return Column(
+      children: [
+        Text(
+          "깔끔하고 다 갖춰져있어서 좋았어요:) 위치도 완전 좋아용 다들 여기 살고싶다구ㅋㅋㅋㅋㅋ 화장실도 3개예요!!! 5명이서 씻는것도 전혀 불편함이 없이 좋았어요^^ 이불도 포근하고 좋습니당ㅎㅎ",
+          style: body1(),
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+        ),
+        SizedBox(height: gap_s),
+      ],
+    );
   }
 
   Widget _buildPopularItemUserInfo() {
-    return SizedBox();
+    return Row(
+      children: [
+        CircleAvatar(
+          backgroundImage: AssetImage("assets/p1.jpeg"),
+        ),
+        SizedBox(width: gap_s),
+        Column(
+          children: [
+            SizedBox(width: gap_s),
+            Text(
+              "데어",
+              style: subtitleBig(),
+            ),
+            Text("한국"),
+          ],
+        ),
+      ],
+    );
   }
 }
