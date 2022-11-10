@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_airbnb/styles.dart';
 
 class CommonFormField extends StatelessWidget {
-  const CommonFormField({Key? key}) : super(key: key);
+  final prefixText;
+  final hintText;
+  CommonFormField({required this.prefixText, required this.hintText, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,8 @@ class CommonFormField extends StatelessWidget {
           textAlignVertical: TextAlignVertical.bottom,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.only(top: 30, left: 20, bottom: 10),
-            hintText: "근처 추천 장소",
+            hintText:
+                "${hintText}", // 그냥 hintText로 넣으면 nullpointException이 뜰 수 있음
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -29,7 +33,7 @@ class CommonFormField extends StatelessWidget {
           top: 8,
           left: 20,
           child: Text(
-            "위치",
+            "${prefixText}",
             style: overLine(),
           ),
         ),
