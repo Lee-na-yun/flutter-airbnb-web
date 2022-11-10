@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_airbnb/components/common/common_form_field.dart';
+import 'package:flutter_airbnb/size.dart';
 
 // 202p 4번
 class HomeHeaderForm extends StatelessWidget {
@@ -17,12 +19,15 @@ class HomeHeaderForm extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Form(
-            child: Column(
-          children: [
-            _buildFormTitle(),
-            _buildFormField(),
-            _buildFormSubmit(),
-          ],
+            child: Padding(
+          padding: const EdgeInsets.all(gap_l),
+          child: Column(
+            children: [
+              _buildFormTitle(),
+              _buildFormField(),
+              _buildFormSubmit(),
+            ],
+          ),
         )),
       ),
     );
@@ -32,8 +37,8 @@ class HomeHeaderForm extends StatelessWidget {
     return SizedBox();
   }
 
-  SizedBox _buildFormField() {
-    return SizedBox();
+  CommonFormField _buildFormField() {
+    return CommonFormField();
   }
 
   SizedBox _buildFormSubmit() {
