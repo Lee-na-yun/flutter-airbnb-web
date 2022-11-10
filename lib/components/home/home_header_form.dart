@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_airbnb/components/common/common_form_field.dart';
+import 'package:flutter_airbnb/constants.dart';
 import 'package:flutter_airbnb/size.dart';
 import 'package:flutter_airbnb/styles.dart';
 
@@ -50,12 +51,58 @@ class HomeHeaderForm extends StatelessWidget {
     );
   }
 
-  CommonFormField _buildFormField() {
+  Widget _buildFormField() {
     // 컴포넌트화 됨
-    return CommonFormField(prefixText: "위치", hintText: "근처 추천 장소");
+    return Column(
+      // 세로방향은 가로값을 안넣어주면 가로값을 풀로 잡음
+      children: [
+        CommonFormField(prefixText: "위치", hintText: "근처 추천 장소"),
+        SizedBox(height: gap_s),
+        Row(
+          // 세로값을 풀로 잡음
+          children: [
+            Expanded(
+                // 가로값
+                child: CommonFormField(prefixText: "체크인", hintText: "날짜 입력")),
+            Expanded(
+                child: CommonFormField(prefixText: "체크 아웃", hintText: "날짜 입력")),
+          ],
+        ),
+        SizedBox(height: gap_s),
+        Row(
+          // 세로값을 풀로 잡음
+          children: [
+            Expanded(
+                // 가로값
+                child: CommonFormField(prefixText: "성인", hintText: "2")),
+            Expanded(child: CommonFormField(prefixText: "어린이", hintText: "0")),
+          ],
+        ),
+        SizedBox(
+          height: gap_m,
+        )
+      ],
+    );
   }
 
-  SizedBox _buildFormSubmit() {
-    return SizedBox();
+  // Button 종류 : TextButton, OutlineButton, ElvatedButton, InkWell(+Container)
+  Widget _buildFormSubmit() {
+    return SizedBox(
+      width: double.infinity,
+      height: 50,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: kAccentColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ), //상태값만 바꿔주면 됨
+        onPressed: () {},
+        child: Text(
+          "검색",
+          style: subtitleBig(mColor: Colors.white),
+        ),
+      ),
+    );
   }
 }
