@@ -97,7 +97,9 @@ class HomeHeaderForm extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ), //상태값만 바꿔주면 됨
-        onPressed: () {},
+        onPressed: () {
+          print("버튼 클릭됨");
+        },
         child: Text(
           "검색",
           style: subtitleBig(mColor: Colors.white),
